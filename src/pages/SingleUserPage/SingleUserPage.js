@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams, Outlet} from "react-router-dom";
 import {usersService} from "../../services";
 import {UserDetails} from "../../components";
 
@@ -15,11 +15,13 @@ const SingleUserPage = () => {
         }else{
             setUser(state);
         }
-    },[id, state])
+    },[id,state])
 
     return (
         <div>
             {user && <UserDetails key={user.id} user={user}/>}
+            <hr/>
+            <Outlet/>
         </div>
     );
 };

@@ -5,3 +5,5 @@ export * from "./PostsPage/PostsPage";
 export * from "./PageNotFoundPage/PageNotFoundPage";
 export * from "./SinglePostPage/SinglePostPage";
 export * from "./SingleUserPage/SingleUserPage";
+export * from "./SinglePostComments/SinglePostComments";
+export * from "./SingleUserPosts/SingleUserPosts";

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams, Outlet} from "react-router-dom";
 
 import {postsService} from "../../services";
 import {PostDetails} from "../../components";
@@ -17,11 +17,13 @@ const SinglePostPage = () => {
         }else {
             setPost(state);
         }
-    }, [id, state])
+    }, [id,state])
 
     return (
         <div>
             {post && <PostDetails key={post.id} post={post}/>}
+            <hr/>
+            <Outlet/>
         </div>
     );
 };

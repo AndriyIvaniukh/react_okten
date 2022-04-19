@@ -1,5 +1,6 @@
 export * from "./Post/Post";
 export * from "./PostDetails/PostDetails";
-export * from "./Botton/Button";
+export * from "./Button/Button";
 export * from "./User/User";
 export * from "./UserDetails/UserDetails";
+export * from "./Comment/Comment";

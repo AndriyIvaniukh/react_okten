@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from "../Botton/Button";
+import {Button} from "../Button/Button";
 
 const User = ({user}) => {
 
