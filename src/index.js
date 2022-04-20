@@ -4,12 +4,15 @@ import {BrowserRouter} from 'react-router-dom';
 
 import App from './App';
 
-const MyContext = createContext(null);
-
+// export const MyContext = createContext(null);
+//
+// const value = {name: 'Max', age: 15};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <BrowserRouter>
-       <App />
-   </BrowserRouter>
+    //<MyContext.Provider value={value}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    //</MyContext.Provider>
 );
