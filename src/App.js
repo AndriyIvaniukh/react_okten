@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {ClassComponent, FunctionalComponents} from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+    const [flag,setFlag] = useState(true);
+
+    return (
+        <div>
+            {/*{flag && <ClassComponent ssss={'MyProps'}/>}*/}
+            {flag && <FunctionalComponents ssss={'MyProps'}/>}
+            <button onClick={()=>setFlag(!flag)}>Hide</button>
+        </div>
+    );
+};
 
 export default App;
