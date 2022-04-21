@@ -1,29 +1,54 @@
-import {createContext, useState} from 'react';
+import React, {createContext, useState} from 'react';
 
-const AuthContext = createContext();
+// const AuthContext = createContext(null);
+//
+// const AuthProvider = ({children}) => {
+//
+//     const [user,setUser] = useState(null);
+//
+//     const logIn = (newUser, cb) => {
+//         setUser(newUser);
+//         cb();
+//     }
+//      const logOut = (cb) => {
+//        setUser(null);
+//        cb();
+//      }
+//
+//      const value={user, logIn, logOut}
+//     return (
+//         <AuthContext.Provider value={value}>
+//             {children}
+//         </AuthContext.Provider>
+//     );
+// };
+//
+// export {AuthProvider, AuthContext};
 
-
-import React from 'react';
+const AuthContext = createContext(null);
 
 const AuthProvider = ({children}) => {
 
-    const [user,setUser] = useState(null);
+    const [user, setUser] = useState(null);
 
     const logIn = (newUser, cb) => {
         setUser(newUser);
         cb();
     }
-     const logOut = (cb) => {
-       setUser(null);
-       cb();
-     }
 
-     const value={user, logIn, logOut}
+    const logOut = (cb) => {
+        setUser(null);
+        cb();
+    }
+
+    const value = {user, logOut, logIn};
+
     return (
         <AuthContext.Provider value={value}>
             {children}
         </AuthContext.Provider>
-    );
-};
+    )
 
-export {AuthProvider, AuthContext};
+}
+
+export {AuthProvider, AuthContext}

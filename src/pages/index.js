@@ -7,3 +7,4 @@ export * from "./SinglePostPage/SinglePostPage";
 export * from "./SingleUserPage/SingleUserPage";
 export * from "./SinglePostComments/SinglePostComments";
 export * from "./SingleUserPosts/SingleUserPosts";
+export * from "./LogInPage/LogInPage";

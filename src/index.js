@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 
 import App from './App';
+import {AuthProvider} from "./hoc";
 
 // export const MyContext = createContext(null);
 //
@@ -11,8 +12,10 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     //<MyContext.Provider value={value}>
+    <AuthProvider>
         <BrowserRouter>
             <App />
         </BrowserRouter>
+    </AuthProvider>
     //</MyContext.Provider>
 );

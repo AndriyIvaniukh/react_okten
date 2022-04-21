@@ -4,6 +4,7 @@ import {Outlet, useSearchParams} from "react-router-dom";
 
 import css from "./PostPage.module.css"
 import {Post} from "../../components";
+
 // import {MyContext} from "../../index";
 
 const PostsPage = () => {
@@ -19,7 +20,7 @@ const PostsPage = () => {
         // value.name = "Olia";
     }, [query])
 
-    const previusPage = () => {
+    const previousPage = () => {
         // let page = query.get('page');
         // page = +page - 1;
         // setQuery({page: page.toString()});
@@ -54,7 +55,7 @@ const PostsPage = () => {
 
                 <div><Outlet/></div>
             </div>
-            <button onClick={() => previusPage()}>previus Page</button>
+            <button onClick={() => previousPage()}>previous Page</button>
             <button onClick={() => nextPage()}>next Page</button>
             <button onClick={() => incrementLimit()}>limit +1</button>
             <button onClick={() => decrementLimit()}>limit -1</button>
