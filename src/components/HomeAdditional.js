@@ -1,12 +1,11 @@
 import React, {useRef} from 'react';
-import {CatAndDogReducer} from "../reducers";
+import {AnimalReducer} from "../reducers";
 import {ShowAnimals} from "./ShowAnimals";
-import {useEffect} from "react";
 
 
 const HomeAdditional = () => {
 
-    const reducer = CatAndDogReducer();
+    const reducer = AnimalReducer();
     const {state, dispatch} = reducer;
 
     const catName = useRef();

@@ -1,2 +1,2 @@
 export * from "./counterReducer";
-export * from "./catAndDogReducer";
+export * from "./animal.reducer";

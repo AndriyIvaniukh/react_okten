@@ -1,14 +1,5 @@
 import {useReducer} from "react";
 
-
-const CatAndDogReducer = () => {
-
-    const [state, dispatch] = useReducer(reducer, 0, init);
-
-    return {state, dispatch};
-}
-
-
 const init = () => {
     return {
         cat: [],
@@ -29,4 +20,11 @@ const reducer = (state, action) => {
     }
 }
 
-export {CatAndDogReducer};
+const AnimalReducer = () => {
+
+    const [state, dispatch] = useReducer(reducer, 0, init);
+
+    return {state, dispatch};
+}
+
+export {AnimalReducer}
