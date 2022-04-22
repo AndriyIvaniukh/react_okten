@@ -1,5 +1,4 @@
-import React from 'react';
-import {useReducer} from "react";
+import React, {useReducer} from 'react';
 
 const init = (initCount) => {
     return {
@@ -11,15 +10,15 @@ const init = (initCount) => {
 const reducer = (state, action) =>{
     switch (action.type){
         case 'inc':
-            return {...state, counter1: state.counter1++};
+            return {...state, counter1: state.counter1+1};
         case 'dec':
-            return {...state, counter1: state.counter1--};
+            return {...state, counter1: state.counter1-1};
         case 'reset':
             return {...state, counter1: action.payload};
     }
 
 }
-const LectionExample = () => {
+const LecturesExample = () => {
     const [state,dispatch] = useReducer(reducer, 0, init);
 
     return (
@@ -34,4 +33,4 @@ const LectionExample = () => {
     );
 };
 
-export {LectionExample};
+export {LecturesExample};

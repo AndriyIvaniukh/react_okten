@@ -3,28 +3,29 @@ import {useReducer} from "react";
 
 const CatAndDogReducer = () => {
 
-    const [state, dispatch] = useReducer(reducer, 0,init);
-
-    console.log(state);
+    const [state, dispatch] = useReducer(reducer, 0, init);
 
     return {state, dispatch};
 }
 
 
-
 const init = () => {
-    return{
+    return {
         cat: [],
         dog: []
     }
 }
 
 const reducer = (state, action) => {
-    switch (action.type){
+    switch (action.type) {
         case 'addCat':
-            return {...state, cat: [...state.cat, action.payload]};
+            return {...state, cat: [...state.cat, {name: action.payload, id: Date.now()}]};
         case 'deleteCat':
-            return {cat: [...state.cat.filter(value => value !==action.payload)], dog: [...state.dog]}
+            return {cat: [...state.cat.filter(cat => cat.id !== action.payload)], dog: [...state.dog]}
+        case 'addDog':
+            return {...state, dog: [...state.dog, {name: action.payload, id: Date.now()}]}
+        case 'deleteDog':
+            return {cat: [...state.cat], dog: [...state.dog.filter(dog => dog.id !== action.payload)]}
     }
 }
 
