@@ -1,9 +1,12 @@
 import React from 'react';
+import {Counters, Users} from "./components";
 
 const App = () => {
     return (
         <div>
-            App
+            <Counters/>
+            <hr/>
+            <Users/>
         </div>
     );
 };
