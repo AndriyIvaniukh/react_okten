@@ -1,17 +1,11 @@
-import React, {useState} from 'react';
-import {ClassComponent, FunctionalComponents} from "./components";
-
+import React from 'react';
 
 const App = () => {
-    const [flag,setFlag] = useState(true);
-
     return (
         <div>
-            {/*{flag && <ClassComponent ssss={'MyProps'}/>}*/}
-            {flag && <FunctionalComponents ssss={'MyProps'}/>}
-            <button onClick={()=>setFlag(!flag)}>Hide</button>
+            App
         </div>
     );
 };
 
-export default App;
+export {App};
