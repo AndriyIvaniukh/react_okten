@@ -41,8 +41,7 @@ const deleteCarById = createAsyncThunk(
 const updateCar = createAsyncThunk(
     'carSlice/updateCar',
     async ({id, car}) =>{
-        const {data} = await carService.updateById(id, car);
-        console.log(data);
+        await carService.updateById(id, car);
     }
 );
 
@@ -73,10 +72,10 @@ const carSlice = createSlice({
                 state.formErrors = formErrors;
             })
             .addCase(deleteCarById.fulfilled, (state, action) => {
-                console.log(action.payload);
+                state.carForUpdate = {};
             })
             .addCase(updateCar.fulfilled, (state, action) => {
-                console.log('updateCar');
+                state.carForUpdate = {};
             })
     }
 

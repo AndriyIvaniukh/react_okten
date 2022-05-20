@@ -14,7 +14,7 @@ const CarForm = () => {
         if(!carForUpdate.id){
             await dispatch(carActions.addCar({car:newCar}))
         }else{
-            await dispatch(carActions.updateCar({id:carForUpdate.id, car:{newCar}}));
+            await dispatch(carActions.updateCar({id:carForUpdate.id, car:newCar}));
         }
 
         reset();
