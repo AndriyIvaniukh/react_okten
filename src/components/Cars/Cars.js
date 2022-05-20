@@ -8,7 +8,7 @@ const Cars = () => {
     const {cars, status} = useSelector(state => state.cars);
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect( ()=>{
         dispatch(carActions.getAll());
     },[])
 

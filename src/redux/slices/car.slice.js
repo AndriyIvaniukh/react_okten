@@ -1,18 +1,18 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {carService} from "../../services";
-import {Car} from "../../components";
 
 const initialState = {
     cars: [],
     status: null,
-    formErrors: {}
+    formErrors: {},
+    carForUpdate: {}
 }
 
 const getAll = createAsyncThunk(
     'carSlice/getAll',
     async () => {
         const {data} = await carService.getAll();
-        return data
+        return data;
     }
 );
 
@@ -29,17 +29,38 @@ const addCar = createAsyncThunk(
     }
 );
 
+const deleteCarById = createAsyncThunk(
+    'carSlice/deleteCarById',
+    async ({id}) => {
+        const {data} = await carService.deleteById(id);
+        console.log('deleted');
+        return data;
+    }
+);
+
+const updateCar = createAsyncThunk(
+    'carSlice/updateCar',
+    async ({id, car}) =>{
+        const {data} = await carService.updateById(id, car);
+        console.log(data);
+    }
+);
+
 const carSlice = createSlice({
     name: 'carSlice',
     initialState,
     reducers: {
         create: (state, action) => {
             state.cars.push(action.payload.car)
+        },
+        addCarForUpdate: (state, action) => {
+            state.carForUpdate = action.payload;
         }
     },
     extraReducers: (builder) => {
         builder
             .addCase(getAll.fulfilled, (state, action) => {
+                console.log('loading');
                 state.status = 'fulfilled';
                 state.cars = action.payload;
             })
@@ -48,8 +69,14 @@ const carSlice = createSlice({
             })
             .addCase(addCar.rejected, (state, action) => {
                 const {status, formErrors} = action.payload;
-                        state.status = status;
-                        state.formErrors = formErrors;
+                state.status = status;
+                state.formErrors = formErrors;
+            })
+            .addCase(deleteCarById.fulfilled, (state, action) => {
+                console.log(action.payload);
+            })
+            .addCase(updateCar.fulfilled, (state, action) => {
+                console.log('updateCar');
             })
     }
 
@@ -77,12 +104,14 @@ const carSlice = createSlice({
 
 });
 
-const {reducer: carReducer, actions: {create}} = carSlice;
+const {reducer: carReducer, actions: {create, addCarForUpdate}} = carSlice;
 
 const carActions = {
     getAll,
     addCar,
-    create
+    create,
+    deleteCarById,
+    addCarForUpdate
 }
 
 export {
