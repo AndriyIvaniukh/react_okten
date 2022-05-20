@@ -111,7 +111,8 @@ const carActions = {
     addCar,
     create,
     deleteCarById,
-    addCarForUpdate
+    addCarForUpdate,
+    updateCar
 }
 
 export {

@@ -11,7 +11,12 @@ const CarForm = () => {
     const dispatch = useDispatch();
 
     const submit = async (newCar) =>{
-        await dispatch(carActions.addCar({car:newCar}))
+        if(!carForUpdate.id){
+            await dispatch(carActions.addCar({car:newCar}))
+        }else{
+            await dispatch(carActions.updateCar({id:carForUpdate.id, car:{newCar}}));
+        }
+
         reset();
     }
 
